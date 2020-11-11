@@ -39,7 +39,7 @@ namespace UrunlerForm
                 
                 return;
             }
-            urun.UrunAd = txtUrunAd.Text;
+            //urun.UrunAd = txtUrunAd.Text;
             DuzenlemeMethod();
             Close();
            
@@ -47,6 +47,7 @@ namespace UrunlerForm
 
         private void DuzenlemeMethod()
         {
+            urun.UrunAd = txtUrunAd.Text;
             urun.StokAdedi = (int)nudStokAdet.Value;
             urun.BirimFiyat = nudFiyat.Value;
             urun.DegisimZamani = DateTime.Now;

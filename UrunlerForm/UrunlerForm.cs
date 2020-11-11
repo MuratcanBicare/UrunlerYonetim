@@ -74,8 +74,7 @@ namespace UrunlerForm
 
         private void DuzenleFormAc()
         {
-            duzenleme = new Duzenleme(db, (Urun)dgvUrunler.SelectedRows[0].DataBoundItem);
-            duzenleme.ShowDialog();
+            Duzenle();
         }
 
         private void AnaForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -91,14 +90,20 @@ namespace UrunlerForm
 
         private void btnDuzenle_Click(object sender, EventArgs e)
         {
+            Duzenle();
+        }
+
+        private void Duzenle()
+        {
             if (dgvUrunler.SelectedRows.Count == 0)
                 return;
 
             Urun seciliUrun = (Urun)dgvUrunler.SelectedRows[0].DataBoundItem;
-            Duzenleme frmDuzenle = new Duzenleme(db,seciliUrun);
+            Duzenleme frmDuzenle = new Duzenleme(db, seciliUrun);
             frmDuzenle.UrunDuzenlendi += FrmDuzenle_UrunDuzenlendi;
             frmDuzenle.Show();
             //blUrunler.ResetBindings();
+
         }
 
         private void FrmDuzenle_UrunDuzenlendi(object sender, EventArgs e)
